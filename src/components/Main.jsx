@@ -1,14 +1,13 @@
-import React from "react"
 import styles from "./Main.module.css"
 
 import CarsList from "./CarsList"
+import Form from "./Form"
 
-function Main() {
+export default function Main() {
   return (
     <main className={styles.main}>
+      <Form />
       <CarsList />
     </main>
   )
 }
-
-export default Main

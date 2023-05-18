@@ -1,7 +1,6 @@
-import React from "react"
 import styles from "./Header.module.css"
 
-function Header() {
+export default function Header() {
   const navigation = ["Home", "Shop", "About", "Contact"]
 
   function navigate() {
@@ -30,5 +29,3 @@ function Header() {
     </>
   )
 }
-
-export default Header

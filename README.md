@@ -223,4 +223,42 @@ Além de utilizar a sintaxe acima, também é possível usar a tag `<React.Fragm
 
 ## Eventos
 
-Os eventos do React são os mesmos dos eventos DOM, ou seja, temos eventos de click, change, submit, etc. O evento é atrelado a uma tag que irá executá-lo
+Os eventos do React são os mesmos dos eventos DOM, ou seja, temos eventos como click, change, submit e etc. O evento é atrelado a uma tag, como um atributo, que irá executar uma função, por exemplo: `<button onClick={clickBtn}>Click</button>`. Logo o método deve ser criado no próprio arquivo do componente. A ação do evento é guardada dentro de uma função.
+
+### Exemplo:
+
+Tenho um botão, quando o usuário clicar nesse botão, irá mostrar uma mensagem no console.
+
+```jsx
+export default function ComponenteBotão() {
+  return <button onClick={clicou}>Botão</button>
+}
+```
+
+É dessa forma que atrelamos um evento a um elemento, logo, quando o usuário clicar nesse botão, executará a função `clicou`, que pode ser declarada em qualquer lugar do código:
+
+```jsx
+function clicou() {
+  console.log("Você clicou no botão")
+}
+```
+
+### Outro Exemplo:
+
+Tenho um formulário de cadastro, quando o usuário enviar (submit) esse furmulário, vai aparecer uma mensagem de cadastro finalizado:
+
+```jsx
+export default function SignUp() {
+  function registered(event) {
+    // quando o  usuário enviar o furmulário, aparecerá uma mensagem de cadastro finalizado
+    console.log("Você está cadastrado!")
+  }
+
+  return (
+    // formulário de cadastro
+    <form method="post" onSubmit={registered}>
+      ...
+    </form>
+  )
+}
+```
