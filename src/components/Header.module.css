@@ -1,0 +1,30 @@
+.header {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10px;
+}
+
+.logo {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 28px;
+  color: #404040;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+.navItem {
+  text-decoration: none;
+  color: #000;
+}
+
+.navItem:hover {
+  text-decoration: underline;
+}
