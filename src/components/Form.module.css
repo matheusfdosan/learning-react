@@ -1,9 +1,8 @@
 .formContainer {
-  margin: 20px 0;
+  margin: 50px 0;
 }
 
 .formTitle {
-  opacity: 0.8;
   text-align: center;
   margin: 20px 0;
 }
@@ -50,6 +49,15 @@
   transition: transform 200ms ease;
 }
 
+.registeredMessage {
+  color: #0f0;
+  margin: 10px 0;
+}
+
 .submitButton:hover {
   transform: scale(1.05);
+}
+
+.submitButton:active {
+  transform: scale(1);
 }

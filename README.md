@@ -223,7 +223,7 @@ Além de utilizar a sintaxe acima, também é possível usar a tag `<React.Fragm
 
 ## Eventos
 
-Os eventos do React são os mesmos dos eventos DOM, ou seja, temos eventos como click, change, submit e etc. O evento é atrelado a uma tag, como um atributo, que irá executar uma função, por exemplo: `<button onClick={clickBtn}>Click</button>`. Logo o método deve ser criado no próprio arquivo do componente. A ação do evento é guardada dentro de uma função.
+Os eventos do React são os mesmos dos eventos DOM, ou seja, temos eventos como click, change, submit e etc. O evento é atrelado a uma tag, como um atributo, que irá executar uma função, por exemplo: `<button onClick={clickBtn}>Click</button>`. Logo o método deve ser criado no próprio arquivo do componente. A ação do evento é guardada numa função.
 
 ### Exemplo:
 
@@ -245,7 +245,7 @@ function clicou() {
 
 ### Outro Exemplo:
 
-Tenho um formulário de cadastro, quando o usuário enviar (submit) esse furmulário, vai aparecer uma mensagem de cadastro finalizado:
+Tenho um formulário de cadastro, quando o usuário enviar (submit) esse formulário, vai aparecer uma mensagem de cadastro finalizado:
 
 ```jsx
 export default function SignUp() {
@@ -262,3 +262,62 @@ export default function SignUp() {
   )
 }
 ```
+
+## useState
+
+O `useState` é um hook do React, com ele conseguimos manusear o estado de um componente de forma simples e eficiente. Por exemplo, imagine que temos um componente que guarda algum dado que pode ser alterado ao longo do tempo, como um botão de contar, a cada click o valor aumenta. O useState faz isso. Além de, funcionar muito bem com eventos.
+
+> Os hooks são funcionalidades específicas e únicas do React. São funcionalidades que, se não existissem, iriamos ter que criá-las com nossas próprias mãos.
+
+Primeiramente, devemos importar o hook nas primeiras linhas do código: `import { useState } from "react"`.
+
+Para começarmos a utilizá-lo, devemos criar uma constante e uma função dentro do componente, assim: `const [nome, colocarNome] = useState("sem-nome")`. O `nome` será a variável que receberá os dados, o `colocarNome`, será a função que vai colocar os dados (nomes), a seguir, receberam a função `useState("sem-nome")`, que colocar um valor inicial, ou também pode deixar com valor nenhum `useState()`.
+
+```jsx
+import React, { useState } from "react"
+
+export default function Nomeador() {
+  const [nome, colocarNome] = useState("sem-nome")
+
+  return <p>{nome}</p> // sem-nome
+}
+```
+
+Para colocarmos novos nomes, escrevemos `colocarNome("novoNome")`:
+
+```jsx
+import React, { useState } from "react"
+
+export default function Nomeador() {
+  const [nome, colocarNome] = useState("sem-nome")
+
+  colocarNome("John Doe")
+
+  return <p>{nome}</p> // John Doe
+}
+```
+
+### useState com eventos
+
+Podemos também atribuir um evento baseado em mudanças de dados com o `useState`, como um botão de traduzir, quando clicar no botão de traduzir, o texto acima será substituído por um texto de outra língua:
+
+```jsx
+import React, { useState } from "react"
+
+export default function Texto() {
+  const [texto, traduzirTexto] = useState("English Text")
+
+  function traduzir() {
+    traduzirTexto("Texto em português")
+  }
+
+  return (
+    <>
+      <p>{texto}</p>
+      <button onClick={traduzir}>Traduzir</button>
+    </>
+  )
+}
+```
+
+Quando o usuário clicar no botão de traduzir, a função `traduzir` será executada, alterando o valor da variável `texto` para um texto em português.

@@ -1,8 +1,9 @@
 import PropTypes from "prop-types"
+import styles from "./CarItem.module.css"
 
 function CarItem({ brand, releaseYear }) {
   return (
-    <li>
+    <li className={styles.carItem}>
       <span>{brand}</span>
       <span>{releaseYear}</span>
     </li>

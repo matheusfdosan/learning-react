@@ -1,0 +1,33 @@
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  margin: 15px;
+}
+
+.license {
+  text-align: justify;
+}
+
+.translateBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 25px;
+  background-color: transparent;
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: transform 200ms ease;
+  cursor: pointer;
+}
+
+.translateBtn:hover {
+  transform: scale(1.05);
+}
+
+.translateBtn:active {
+  transform: scale(1);
+}
