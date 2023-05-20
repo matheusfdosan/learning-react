@@ -1,6 +1,6 @@
 # React JS
 
-O **React.js** é uma biblioteca que utiliza JavaScritpt, com o objetivo de criar interfaces. Uma ferramenta criada pelo Facebook e 2011. Ele é utilizado para construir SPAs (Single Page Aplications), o que significa que, se utiliza uma página index, para rodar toda a aplicação. Além de, ser baseado em componentes, elementos na interface, que, podemos utilizar e reutilizar, em diversas partes do código.
+O **React.js** é uma biblioteca que utiliza JavaScritpt, com o objetivo de criar interfaces. Uma ferramenta criada pelo Facebook em 2011. Ele é utilizado para construir SPAs (Single Page Aplications), o que significa que, se utiliza uma página index, para rodar toda a aplicação. Além de, ser baseado em componentes, elementos na interface, que, podemos utilizar e reutilizar, em diversas partes do código.
 
 Em seus arquivos, utiliza-se a extensão `JSX` para renderizar HTML e, permite que você misture código JavaScript com sintaxe de HTML. E aplica o **Virtual DOM** para renderizar as alterações de DOM, ou seja, o Virtual DOM ajuda a otimizar o desempenho da aplicação, atualizando apenas as partes do DOM que foram modificadas, em vez de redesenhar toda a página.
 
@@ -166,6 +166,36 @@ ItemList.defaultProps = {
 ```
 
 > Entretanto, definido um valor padrão para as props, não será mais necessário usar o método _isRequired_.
+
+### Métodos por props
+
+Os métodos também podem ser passados por props, ou seja, enviar funções por meio de propriedades, a vantagem disso é que se tiver um layout todo componentizado, geralmente, posso ter um componente que não seja um pai que executa o filho. Então, nesse caso, um componente filho pode ativar o método do seu componente pai.
+
+Para isso, iremos acessar esse método por meio de um evento, como um _onClick_, e a sintaxe é a mesma de uma props de dados: `props.meuEvento`.
+
+```jsx
+export default function ComponentePai() {
+  const clicou = () => console.log("Você clicou em mim") // função do evento
+
+  return <Botão evento={clicou} tipo="button" conteudo="Clique em mim" />
+}
+```
+
+O `ComponentePai` está retornando o componente `<Botão />` com as propriedades de conteúdo, tipo do botão e um evento. Vimos que no evento estamos passando a função `clicou`, que vai executar uma mensagem no console quando for executada.
+
+No componente filho, o `Botão` está retornando um elemento `<button>`, usando das _props_ para preencher seus atributos específicos.
+
+```jsx
+export default function Botão(props) {
+  return (
+    <button onClick={props.evento} type={props.tipo}>
+      {props.conteudo}
+    </button>
+  )
+}
+```
+
+Vimos que o atributo de click, recebe a propriedade `evento`, que é uma função, mas é atribuida normalmente ao componente, entretanto, quando o usuário clicar no botão, a função `clicou` (que está no componente pai), será executada.
 
 ## CSS Modules
 

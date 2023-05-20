@@ -1,7 +1,8 @@
 import { useState } from "react"
-import styles from "./Form.module.css"
+import styles from "./Newsletter.module.css"
+import Button from "./Button"
 
-export default function Form() {
+export default function Newsletter() {
   const [registeredMessage, setMessage] = useState()
 
   function registered(event) {
@@ -12,7 +13,7 @@ export default function Form() {
       setMessage("")
     }, 5000)
   }
-  
+
   return (
     <div className={styles.formContainer}>
       <h2 className={styles.formTitle}>Subscribe to our newsletter</h2>
@@ -32,10 +33,8 @@ export default function Form() {
         </div>
 
         <p className={styles.registeredMessage}>{registeredMessage}</p>
-
-        <button type="submit" className={styles.submitButton}>
-          Send
-        </button>
+        
+        <Button type="submit" content="Subscribe" />
       </form>
     </div>
   )

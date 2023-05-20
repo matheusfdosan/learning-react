@@ -35,29 +35,7 @@
   font-size: 1rem;
 }
 
-.submitButton {
-  padding: 10px 20px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  background-color: transparent;
-  font-size: 1rem;
-  width: 60%;
-  margin: 20px 0;
-  max-width: 400px;
-  min-width: 200px;
-  cursor: pointer;
-  transition: transform 200ms ease;
-}
-
 .registeredMessage {
   color: #0f0;
   margin: 10px 0;
-}
-
-.submitButton:hover {
-  transform: scale(1.05);
-}
-
-.submitButton:active {
-  transform: scale(1);
 }
