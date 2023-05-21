@@ -351,3 +351,51 @@ export default function Texto() {
 ```
 
 Quando o usuário clicar no botão de traduzir, a função `traduzir` será executada, alterando o valor da variável `texto` para um texto em português.
+
+## Renderização Condicional
+
+Basicamente, é a questão de renderizar ou não um elemento, ou componente, em decorrência de um teste lógico, por exemplo, se o usuário não estiver logado, aparecer botão de login, se não, esconder botão de login. Isso é bem simples de se fazer.
+
+Há várias maneiras de controlar a renderização condicional no React:
+
+### Operador Ternário
+
+Podemos usar o operador ternário para renderizar determinados componentes:
+
+```jsx
+export default function Componente() {
+  return <>{EstáLogado ? <UsuárioLogado /> : <FazerLogin />}</>
+}
+```
+
+Essa condição refere-se a um login, se o usuário estiver logado, mostrará o componente `<UsuárioLogado />`, se não estiver logado, mostrará o componente de `<FazerLogin />`
+
+### Operador lógico
+
+O operador lógico &&, nesse caso, tem um funcionamento diferente, ele permite renderizar um componente ou elemento somente se a expressão à esquerda do operador for verdadeira:
+
+```jsx
+export default function Componente() {
+  return <>
+    {EstáLogado && <UsuárioLogado>}
+  </>
+}
+```
+
+### Estruturas Condicionais
+
+Nesse caso, usaremos funções com `if...else` normal para determinar a renderização:
+
+```jsx
+export default function Componente() {
+  function UsuárioLogado() {
+    if (EstáLogado) {
+      return <p>Você está logado!</p>
+    } else {
+      return <p>Você não está logado!</p>
+    }
+  }
+
+  return <>{UsuárioLogado()}</>
+}
+```
